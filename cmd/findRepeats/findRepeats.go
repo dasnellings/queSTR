@@ -6,6 +6,7 @@ import (
 	"github.com/dasnellings/queSTR/seq"
 	"log"
 	"os"
+	"strings"
 )
 
 type bed struct {
@@ -67,7 +68,7 @@ func search(chr, seq string, minUnitLen, maxUnitLen, minUnitCount int) {
 		b.Chr = chr
 		b.Start = idx
 		b.End = idx + (consecutiveUnits * len(motif))
-		b.Name = fmt.Sprintf("%dx%s", consecutiveUnits, motif)
+		b.Name = fmt.Sprintf("%dx%s", consecutiveUnits, strings.ToUpper(motif))
 
 		output(b)
 
